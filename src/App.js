@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import PolicyCardsContainer from './components/PolicyCardsContainer/PolicyCardsContainer';
 
 /*
@@ -21,11 +22,15 @@ import PolicyCardsContainer from './components/PolicyCardsContainer/PolicyCardsC
     ]
 */
 
+const queryClient = new QueryClient();
+
 const App = () => (
-  <Fragment>
-    <h1>Your policies</h1>
-    <PolicyCardsContainer />
-  </Fragment>
+    <QueryClientProvider client={queryClient}>
+        <Fragment>
+            <h1>Your policies</h1>
+            <PolicyCardsContainer />
+        </Fragment>
+    </QueryClientProvider>
 );
 
 export default App;
