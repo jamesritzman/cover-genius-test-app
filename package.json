@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass": "^4.14.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-query": "^3.25.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "sass": "^1.42.1"
   },
   "scripts": {
     "start": "react-scripts start",

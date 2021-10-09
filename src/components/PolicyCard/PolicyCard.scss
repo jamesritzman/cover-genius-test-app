@@ -1,0 +1,56 @@
+@import "../../styles/fonts.scss";
+
+.policy-card {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    h3 {
+        font-family: "brandon-grotesque", sans-serif;
+    }
+
+    p {
+        font-family: "bitter", serif;
+        color: #888;
+    }
+
+    .policy-card-top {
+
+    }
+
+    .rule {
+        border-top: 1px solid #aaa;
+    }
+
+    .policy-card-bottom {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+
+        .policy-card-coverage-date-info {
+            margin-right: 25px;
+        }
+
+        .coverage-dates {
+            color: #000;
+        }
+
+        .coverage-dates-secondary {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .status-text-active {
+                color: green;
+            }
+
+            .status-text-expired {
+                color: red;
+            }
+        }
+    }
+
+
+
+}
