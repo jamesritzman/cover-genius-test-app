@@ -17,11 +17,27 @@ const PolicyCard = (props) => {
         partner
     } = props.data;
 
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
     const formatDate = (dateString) => {
         const dateElements = dateString.split("-");
-        const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"][dateElements[1] - 1];
+        const month = months[dateElements[1] - 1];
         return `${dateElements[2]}-${month}-${dateElements[0]}`;
     };
+
+    const formatDateFromIso = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+        return `${day}-${month}-${year}`;
+    }
+
+    const capitalizeFirstLetter = (string) => {
+        let firstLetter = string.slice(0, 1);
+        let remainder = string.slice(1);
+        return `${firstLetter.toUpperCase()}${remainder}`;
+    }
 
     const coverageDatesSecondaryInfo = () => {
         return coverage_end_date ?
@@ -40,17 +56,40 @@ const PolicyCard = (props) => {
     return(
         <div className="policy-card">
             <div className="policy-card-top">
-                <h3>{title}</h3>
-                <p>{id} | {description}</p>
+                <div className="circle-chevron-icon">&gt;</div>
+                <div className="title-description-wrapper">
+                    <h3>{title}</h3>
+                    <p>{id} | {description}</p>                    
+                </div>
+                <img src={partner.logo} className="logo-top" alt="company logo" />
             </div>
             <div className="rule"></div>
             <div className="policy-card-bottom">
+                <div className="payment-date">
+                    <p>{formatDateFromIso(payment_date)}</p>
+                    <p>Payment date</p>
+                </div>
                 <div className="policy-card-coverage-date-info">
                     <p className="coverage-dates">{formatDate(coverage_start_date)} {coverage_end_date ? ` to ${formatDate(coverage_end_date)}` : ""}</p>
                     { coverageDatesSecondaryInfo()}                    
                 </div>
-                <img src={partner.logo} className="logo" alt="company logo" />
+                <div className="price-premium">
+                    <p>{premium_formatted}</p>
+                    <p>Price/Premium</p>
+                </div>
+                {
+                    renewal ? (
+                        <div className="renewal">
+                            <p>{capitalizeFirstLetter(renewal)}</p>
+                            <p>Renewal</p>
+                        </div>
+                    ) : (
+                        null
+                    )
+                }
+                <img src={partner.logo} className="logo-bottom" alt="company logo" />
             </div>
+            <img src={partner.logo} className="logo-side" alt="company logo" />
         </div>
     )
 };

@@ -4,23 +4,81 @@
     background-color: #fff;
     border-radius: 6px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+
+    @media screen and (min-width: 768px) {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "top logo"
+            "rule logo"
+            "bottom logo";
+    }
 
     h3 {
         font-family: "brandon-grotesque", sans-serif;
+        margin: 10px 0;
     }
 
     p {
         font-family: "bitter", serif;
         color: #888;
+        margin: 10px 0;
     }
 
     .policy-card-top {
+        @media screen and (min-width: 768px) {
+            display: grid;
+            grid-template-columns: 75px auto auto;
+            grid-template-areas: "icon text logo";
+        }
 
+        @media screen and (min-width: 1280px) {
+            grid-area: top;
+        }
+
+        .circle-chevron-icon {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+                width: 60px;
+                height: 60px;
+                border: 3px solid yellow;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 60px;
+                margin: 15px 15px 15px 0;
+            }
+        }
+
+        .logo-top {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+                justify-self: end;
+            }
+
+            @media screen and (min-width: 1280px) {
+                display: none;
+            }
+        }
     }
 
     .rule {
         border-top: 1px solid #aaa;
+
+        @media screen and (min-width: 1280px) {
+            grid-area: rule;
+            margin-right: 25px;
+        }
     }
 
     .policy-card-bottom {
@@ -28,29 +86,76 @@
         grid-template-columns: 1fr auto;
         align-items: center;
 
+        @media screen and (min-width: 768px) {
+            grid-template-columns: auto auto auto auto;
+        }
+
+        @media screen and (min-width: 1280px) {
+            grid-area: bottom;
+        }
+
+        > div {
+            @media screen and (min-width: 768px) {
+                border-left: 1px solid #888;
+                margin-top: 20px;
+                padding-left: 20px;
+            }
+        }
+
+        .payment-date {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+        }
+
         .policy-card-coverage-date-info {
             margin-right: 25px;
-        }
 
-        .coverage-dates {
-            color: #000;
-        }
-
-        .coverage-dates-secondary {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            .status-text-active {
-                color: green;
+            .coverage-dates {
+                color: #000;
             }
 
-            .status-text-expired {
-                color: red;
+            .coverage-dates-secondary {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+    
+                .status-text-active {
+                    color: green;
+                }
+    
+                .status-text-expired {
+                    color: red;
+                }
             }
         }
+
+        .price-premium {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+        }
+
+        .logo-bottom {
+            @media screen and (min-width: 768px) {
+                display: none;
+            }
+        }
+
     }
 
+    .logo-side {
+        display: none;
 
+        @media screen and (min-width: 1280px) {
+            display: block;
+            grid-area: logo;
+            align-self: center;
+        }
+    }
 
 }
