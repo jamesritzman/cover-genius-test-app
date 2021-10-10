@@ -1,17 +1,20 @@
 @import "../../styles/fonts.scss";
 
+$breakpoint-tablet-min: 768px;
+$breakpoint-desktop-min: 1280px;
+
 .policy-card {
     background-color: #fff;
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 15px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $breakpoint-tablet-min) {
         padding: 20px;
         margin-bottom: 25px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $breakpoint-desktop-min) {
         display: grid;
         grid-template-columns: 1fr 200px;
         grid-template-rows: auto auto auto;
@@ -37,20 +40,20 @@
     }
 
     .policy-card-top {
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: $breakpoint-tablet-min) {
             display: grid;
             grid-template-columns: 75px auto auto;
             grid-template-areas: "icon text logo";
         }
 
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: $breakpoint-desktop-min) {
             grid-area: top;
         }
 
         .circle-chevron-icon {
             display: none;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $breakpoint-tablet-min) {
                 display: block;
                 width: 60px;
                 height: 60px;
@@ -65,12 +68,12 @@
         .logo-top {
             display: none;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $breakpoint-tablet-min) {
                 display: block;
                 justify-self: end;
             }
 
-            @media screen and (min-width: 1280px) {
+            @media screen and (min-width: $breakpoint-desktop-min) {
                 display: none;
             }
         }
@@ -79,7 +82,7 @@
     .rule {
         border-top: 1px solid #aaa;
 
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: $breakpoint-desktop-min) {
             grid-area: rule;
             margin-right: 25px;
         }
@@ -90,16 +93,16 @@
         grid-template-columns: 1fr auto;
         align-items: center;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: $breakpoint-tablet-min) {
             grid-template-columns: auto auto auto auto;
         }
 
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: $breakpoint-desktop-min) {
             grid-area: bottom;
         }
 
         > div {
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $breakpoint-tablet-min) {
                 border-left: 1px solid #aaa;
                 margin-top: 20px;
                 padding-left: 20px;
@@ -109,7 +112,7 @@
         .payment-date {
             display: none;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $breakpoint-tablet-min) {
                 display: block;
             }
         }
@@ -139,7 +142,7 @@
         .price-premium {
             display: none;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $breakpoint-tablet-min) {
                 display: block;
             }
         }
@@ -147,13 +150,13 @@
         .renewal {
             display: none;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $breakpoint-tablet-min) {
                 display: block;
             }
         }
 
         .logo-bottom {
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $breakpoint-tablet-min) {
                 display: none;
             }
         }
@@ -162,7 +165,7 @@
     .logo-side {
         display: none;
 
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: $breakpoint-desktop-min) {
             display: block;
             grid-area: logo;
             align-self: center;
