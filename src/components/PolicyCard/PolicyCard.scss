@@ -144,6 +144,14 @@
             }
         }
 
+        .renewal {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+        }
+
         .logo-bottom {
             @media screen and (min-width: 768px) {
                 display: none;
