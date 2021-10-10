@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./PolicyCard.scss";
 
 const PolicyCard = (props) => {
@@ -17,6 +17,8 @@ const PolicyCard = (props) => {
         partner
     } = props.data;
 
+    const [isActive, setIsActive] = useState(false);
+
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
     const formatDate = (dateString) => {
@@ -34,8 +36,8 @@ const PolicyCard = (props) => {
     }
 
     const capitalizeFirstLetter = (string) => {
-        let firstLetter = string.slice(0, 1);
-        let remainder = string.slice(1);
+        const firstLetter = string.slice(0, 1);
+        const remainder = string.slice(1);
         return `${firstLetter.toUpperCase()}${remainder}`;
     }
 
@@ -54,7 +56,7 @@ const PolicyCard = (props) => {
     };
 
     return(
-        <div className="policy-card">
+        <div className={`policy-card ${isActive ? "active" : ""}`} onClick={() => {setIsActive(!isActive)}}>
             <div className="policy-card-top">
                 <div className="circle-chevron-icon">&gt;</div>
                 <div className="title-description-wrapper">
