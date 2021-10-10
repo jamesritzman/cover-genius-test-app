@@ -24,6 +24,7 @@ const PolicyCard = (props) => {
     const formatDate = (dateString) => {
         const dateElements = dateString.split("-");
         const month = months[dateElements[1] - 1];
+
         return `${dateElements[2]}-${month}-${dateElements[0]}`;
     };
 
@@ -32,16 +33,20 @@ const PolicyCard = (props) => {
         const day = date.getDate();
         const month = months[date.getMonth()];
         const year = date.getFullYear();
+
         return `${day}-${month}-${year}`;
-    }
+    };
 
     const capitalizeFirstLetter = (string) => {
         const firstLetter = string.slice(0, 1);
         const remainder = string.slice(1);
+
         return `${firstLetter.toUpperCase()}${remainder}`;
-    }
+    };
 
     const coverageDatesSecondaryInfo = () => {
+        // The output of this section is apparently dependent on the state/value of coverage_end_date
+        
         return coverage_end_date ?
             (
                 <div className="coverage-dates-secondary">

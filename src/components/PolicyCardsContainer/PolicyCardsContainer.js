@@ -27,7 +27,7 @@ const PolicyCardsContainer = () => {
 
     return (
         <>
-            <ReactQueryDevtools initialIsOpen />
+            {/* <ReactQueryDevtools initialIsOpen /> */}
             { renderPolicyCards(data.policies) }
         </>
     )
