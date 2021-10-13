@@ -50,12 +50,12 @@ const PolicyCard = (props) => {
         return coverage_end_date ?
             (
                 <div className="coverage-dates-secondary">
-                    <p>Coverage dates</p><p className="status-text-active">Active &bull;</p>
+                    <p>Coverage dates</p><p className="status-text-active">ACTIVE &bull;</p>
                 </div>
             )
             : (
                 <div className="coverage-dates-secondary">
-                    <p>Date shipped</p><p className="status-text-expired">Expired &bull;</p>
+                    <p>Date shipped</p><p className="status-text-expired">EXPIRED &bull;</p>
                 </div>
             )
     };
@@ -72,23 +72,23 @@ const PolicyCard = (props) => {
             </div>
             <div className="rule"></div>
             <div className="policy-card-bottom">
-                <div className="payment-date">
-                    <p>{formatDateFromIso(payment_date)}</p>
-                    <p>Payment date</p>
+                <div className="payment-date subsection">
+                    <p className="value">{formatDateFromIso(payment_date)}</p>
+                    <p className="label">Payment date</p>
                 </div>
-                <div className="policy-card-coverage-date-info">
-                    <p className="coverage-dates">{formatDate(coverage_start_date)} {coverage_end_date ? ` to ${formatDate(coverage_end_date)}` : ""}</p>
+                <div className="coverage-date-info subsection">
+                    <p className="coverage-dates value">{formatDate(coverage_start_date)} {coverage_end_date ? ` to ${formatDate(coverage_end_date)}` : ""}</p>
                     { coverageDatesSecondaryInfo()}                    
                 </div>
-                <div className="price-premium">
-                    <p>{premium_formatted}</p>
-                    <p>Price/Premium</p>
+                <div className="price-premium subsection">
+                    <p className="value">{premium_formatted}</p>
+                    <p className="label">Price/Premium</p>
                 </div>
                 {
                     renewal ? (
-                        <div className="renewal">
-                            <p>{capitalizeFirstLetter(renewal)}</p>
-                            <p>Renewal</p>
+                        <div className="renewal subsection">
+                            <p className="value">{capitalizeFirstLetter(renewal)}</p>
+                            <p className="label">Renewal</p>
                         </div>
                     ) : (
                         null

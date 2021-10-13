@@ -3,9 +3,16 @@
 $breakpoint-tablet-min: 768px;
 $breakpoint-desktop-min: 1280px;
 
+$font-primary: "brandon-grotesque";
+$font-secondary: "bitter";
+
+$color-mine-shaft: #2d2d2d;
+$color-rolling-stone: #73777c;
+$color-gold: #ffd200;
+
 .policy-card {
     background-color: #fff;
-    border-radius: 6px;
+    border-radius: 3px;
     padding: 10px;
     margin-bottom: 15px;
 
@@ -29,13 +36,24 @@ $breakpoint-desktop-min: 1280px;
     }
 
     h3 {
-        font-family: "brandon-grotesque", sans-serif;
+        color: $color-mine-shaft;
+        font-family: $font-primary, sans-serif;
+        font-size: 20px;
+        line-height: 30px;
         margin: 10px 0;
+
+        @media screen and (min-width: $breakpoint-desktop-min) {
+            font-size: 24px;
+        }
     }
 
     p {
-        font-family: "bitter", serif;
-        color: #888;
+        color: $color-rolling-stone;
+        font-family: $font-secondary, serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        color: $color-rolling-stone;
         margin: 10px 0;
     }
 
@@ -55,13 +73,14 @@ $breakpoint-desktop-min: 1280px;
 
             @media screen and (min-width: $breakpoint-tablet-min) {
                 display: block;
-                width: 60px;
-                height: 60px;
-                border: 3px solid yellow;
+                width: 48px;
+                height: 48px;
+                border: 2px solid $color-gold;
                 border-radius: 50%;
                 text-align: center;
-                line-height: 60px;
+                line-height: 48px;
                 margin: 15px 15px 15px 0;
+                color: $color-mine-shaft;
             }
         }
 
@@ -80,7 +99,7 @@ $breakpoint-desktop-min: 1280px;
     }
 
     .rule {
-        border-top: 1px solid #aaa;
+        border-top: 1px solid #e0e4e8;
 
         @media screen and (min-width: $breakpoint-desktop-min) {
             grid-area: rule;
@@ -101,9 +120,23 @@ $breakpoint-desktop-min: 1280px;
             grid-area: bottom;
         }
 
-        > div {
+        > .subsection {
+            > .value {
+                color: $color-mine-shaft;
+                font-family: $font-primary;
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            > .label {
+                color: #65737e;
+                font-family: $font-secondary;
+                font-size: 12px;
+                line-height: 18px;
+            }
+
             @media screen and (min-width: $breakpoint-tablet-min) {
-                border-left: 1px solid #aaa;
+                border-left: 1px solid #e0e4e8;
                 margin-top: 20px;
                 padding-left: 20px;
             }
@@ -117,24 +150,36 @@ $breakpoint-desktop-min: 1280px;
             }
         }
 
-        .policy-card-coverage-date-info {
+        .coverage-date-info {
             margin-right: 25px;
-
-            .coverage-dates {
-                color: #000;
-            }
 
             .coverage-dates-secondary {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                color: $color-rolling-stone;
+                font-family: $font-secondary;
+
+                > p {
+                    font-size: 12px;
+                    line-height: 15px;
+                    margin: 0;
+                }
+
+                .status-text-active,
+                .status-text-expired {
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    line-height: 24px;
+                    transform: translateY(-5px); /* to adjust for differing line-heights as declared in Figma */
+                }
     
                 .status-text-active {
-                    color: green;
+                    color: #00a082;
                 }
     
                 .status-text-expired {
-                    color: red;
+                    color: #ff3200;
                 }
             }
         }
@@ -152,6 +197,10 @@ $breakpoint-desktop-min: 1280px;
 
             @media screen and (min-width: $breakpoint-tablet-min) {
                 display: block;
+            }
+
+            > .label {
+                color: $color-rolling-stone;
             }
         }
 
@@ -176,7 +225,7 @@ $breakpoint-desktop-min: 1280px;
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 
         .circle-chevron-icon {
-            background-color: yellow;
+            background-color: $color-gold;
             transform: rotate(90deg);
         }
     }
